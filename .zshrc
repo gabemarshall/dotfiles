@@ -96,6 +96,20 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # ----------------------------------------------------------------------------
 PROMPT='%{$fg[green]%}${PWD/#$HOME/♞ ~}%b%{$reset_color%} '
 
+# Enable VIM mode for command prompt
+bindkey -v
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+# Keep emac style Ctrl A and Ctrl E
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
