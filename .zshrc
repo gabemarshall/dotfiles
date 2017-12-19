@@ -102,13 +102,25 @@ bindkey -v
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
+
+# Keep emacs style of command line movement
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
-
-# Keep emac style Ctrl A and Ctrl E
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
+bindkey "^F" forward-word
+bindkey "^B" backward-word
+
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
