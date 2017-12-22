@@ -2,6 +2,7 @@ alias chrome='open -a "Google Chrome"'
 alias sublime='open -a "Sublime Text"'
 alias atom='open -a "Atom"'
 alias vs='open -a "Visual Studio Code"'
+alias binja='/Applications/Binary\ Ninja.app/Contents/MacOS/binaryninja'
 
 alias attach="hdiutil attach" # attach a .dmg image
 alias preview="qlmanage -p" # preview images
