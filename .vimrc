@@ -16,3 +16,10 @@ set sts=4
 set showmatch    "When a bracket is inserted, briefly jump to the matching one"
 
 set nowrap
+let mapleader=","
+map <C-t><right> :tabn<cr>
+map <C-t><left> :tabp<cr>
+set ruler
+set foldmethod=marker
+set foldmarker={{,}}
+set rtp+=/usr/local/opt/fzf
