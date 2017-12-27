@@ -23,3 +23,12 @@ set ruler
 set foldmethod=marker
 set foldmarker={{,}}
 set rtp+=/usr/local/opt/fzf
+
+call plug#begin('~/.vim/plugged')
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
+Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/fidian/hexmode.git'
+call plug#end()
+nmap F <Plug>(easymotion-prefix)s
