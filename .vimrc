@@ -30,5 +30,6 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
 Plug 'https://github.com/easymotion/vim-easymotion.git'
 Plug 'https://github.com/fidian/hexmode.git'
+Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 nmap F <Plug>(easymotion-prefix)s
