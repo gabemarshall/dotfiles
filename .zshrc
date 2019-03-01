@@ -102,12 +102,14 @@ bindkey -v
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^?' backward-delete-char
-bindkey    "^[[3~"          delete-char
-bindkey    "^[3;5~"         delete-char
-
-# Keep emacs style of command line movement
+bindkey '^[3;5~' delete-char
+bindkey '^[[3~' delete-char
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+
+# Keep emac style Ctrl A and Ctrl E
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^F" forward-word
@@ -123,9 +125,16 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 export GOPATH=$HOME/go
+export PATH=$PATH:/Users/jumpman/miniconda2/bin
 export PATH=$PATH:$GOPATH/bin
-
+# export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+# source /usr/local/bin/virtualenvwrapper.sh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+export PATH="/usr/local/sbin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--border'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jumpman/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jumpman/Downloads/google-cloud-sdk/path.zsh.inc'; fi
