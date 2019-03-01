@@ -25,3 +25,8 @@ alias shrug="printf '¯\_(ツ)_/¯' | pbcopy"
 
 # Start kali container
 alias kali='docker run -ti -d --hostname kali -v /pentest/msf:/usr/share/metasploit-framework --net=host --privileged metasploit /bin/bash'
+
+# OSINT aliases
+alias dork='echo site:linkedin.com -intitle:"Top" -inurl:"Salaries in" -intitle:"Directory" -intitle:"Profiles" -inurl:jobs -inurl:company'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
