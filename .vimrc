@@ -9,9 +9,9 @@ set backspace=2  "Allow backspacing over everything in insert mode"
 
 set autoindent   "Always set auto-indenting on"
 set expandtab    "Insert spaces instead of tabs in insert mode. Use spaces for indents"
-set tabstop=4    "Number of spaces that a <Tab> in the file counts for"
-set shiftwidth=4 "Number of spaces to use for each step of (auto)indent"
-set sts=4
+set tabstop=2    "Number of spaces that a <Tab> in the file counts for"
+set shiftwidth=2 "Number of spaces to use for each step of (auto)indent"
+set sts=2
 
 set showmatch    "When a bracket is inserted, briefly jump to the matching one"
 
@@ -23,6 +23,12 @@ set ruler
 set foldmethod=marker
 set foldmarker={{,}}
 set rtp+=/usr/local/opt/fzf
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'prettier/vim-prettier', {
