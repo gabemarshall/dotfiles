@@ -53,7 +53,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
+for file in ~/.{private,aliases,macaliasesfunctions}; do
 	    [ -r "$file" ] && source "$file"
 done
 # User configuration
@@ -94,11 +94,11 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # ----------------------------------------------------------------------------
 # zee prompt (ha ha)
 # ----------------------------------------------------------------------------
-PROMPT='%{$fg[green]%}${PWD/#$HOME/♞ ~}%b%{$reset_color%} '
+PROMPT='%F{cyan}${PWD/#$HOME/ ~}%f '
+RPROMPT='%F{blue}%n@%m%f'
 
 # Enable VIM mode for command prompt
 bindkey -v
-
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^?' backward-delete-char
@@ -108,7 +108,6 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
-
 # Keep emac style Ctrl A and Ctrl E
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
@@ -123,7 +122,8 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
-
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
 export GOPATH=$HOME/go
 export PATH=$PATH:/Users/jumpman/miniconda2/bin
 export PATH=$PATH:$GOPATH/bin
