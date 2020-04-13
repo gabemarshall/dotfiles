@@ -1,7 +1,3 @@
-alias chrome='open -a "Google Chrome"'
-alias sublime='open -a "Sublime Text"'
-alias binja='/Applications/Binary\ Ninja.app/Contents/MacOS/binaryninja'
-
 alias ls='ls -GFh'
 alias ll='ls -GFhla'
 alias exa='exa --icons'
