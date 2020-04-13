@@ -1,0 +1,15 @@
+#!/bin/bash
+alias attach="hdiutil attach" # attach a .dmg image
+alias preview="qlmanage -p" # preview images
+
+# Use stronger encryption with hdiutil
+alias hdc="hdiutil create -size 1g -encryption AES-256 -type SPARSE -fs HFS+"
+alias hda="hdiutil attach"
+alias hdd="hdiutil detach"
+alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+
+alias binja='/Applications/Binary\ Ninja.app/Contents/MacOS/binaryninja'
+alias chrome='open -a "Google Chrome"'
+alias sublime='open -a "Sublime Text"'
+alias atom='open -a "Atom"'
+alias vs='open -a "Visual Studio Code"'
