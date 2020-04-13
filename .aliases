@@ -1,32 +1,72 @@
 alias chrome='open -a "Google Chrome"'
 alias sublime='open -a "Sublime Text"'
-alias atom='open -a "Atom"'
-alias vs='open -a "Visual Studio Code"'
 alias binja='/Applications/Binary\ Ninja.app/Contents/MacOS/binaryninja'
 
-alias attach="hdiutil attach" # attach a .dmg image
-alias preview="qlmanage -p" # preview images
-
+alias ls='ls -GFh'
+alias ll='ls -GFhla'
+alias exa='exa --icons'
+alias lad='exa -T -L2 -D'
 alias encrypt='openssl enc -aes-256-cbc -a -salt -in'
 alias decrypt='openssl enc -base64 -d -aes-256-cbc -salt -in'
-alias stp="echo '<some_b64_encrypted_value>' | openssl enc -base64 -d -aes-256-cbc -salt | pbcopy"
-
 alias mv='mv -v'
+alias nv='nvim'
+alias vi='nvim'
+alias dirs='dirs -v'
 alias rm='rm -v'
 alias cp='cp -v'
 alias fs="stat -f \"%z bytes\""
-
-alias fuzzy='find . -type f -exec rg --line-number "" {} + | fzf -e --algo=v2'
-alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
-alias ports="lsof -i TCP -n -P | grep LISTEN" # show listening tcp ports
-
+alias xpass='xkcdpass'
+alias pentest="conda activate py27"
+alias ports="sudo lsof -i TCP -n -P | grep LISTEN" # show listening tcp ports
+alias ips="ifconfig | grep inet | grep -v inet6 | awk '{ print \$2 }'"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias extract_domains="rg -o '([a-zA-Z0-9\*_.-]+\.$1)' *|cut -d ':' -f2|sort -u"
+alias fuzzy='vim -c "Rg"'
+alias f='vim -c "Rg"'
+alias bra='br -c ":gi"'
+alias jerbs='ps aux|grep notify |grep ruby'
+alias whos='whois -h whois.cymru.com'
+alias aliases='cat ~/.aliases|fzf'
+alias token='echo $(head -c 16 /dev/urandom | shasum | cut -d" " -f1)'
+alias password="head /dev/urandom |base64|fold -w25|head -n1|tr -cd '[:alnum:]'"
+alias pass=password
+alias pb=pbcopy
+alias proxy='proxychains4 -q -f /usr/local/etc/proxychains.conf'
 # just for fun
 alias shrug="printf '¯\_(ツ)_/¯' | pbcopy"
 
+# data analysis
+# compare two files, show uniques in second only
+alias uniq2="awk 'FNR==NR {a[\$0]++; next} !a[\$0]' $1 $2"
+alias dupe2="awk 'FNR==NR{a[\$1];next}(\$1 in a){print}' $1 $2"
+alias uniq2nd="uniq2"
 # Start kali container
-alias kali='docker run -ti -d --hostname kali -v /pentest/msf:/usr/share/metasploit-framework --net=host --privileged metasploit /bin/bash'
-
 # OSINT aliases
 alias dork='echo site:linkedin.com -intitle:"Top" -inurl:"Salaries in" -intitle:"Directory" -intitle:"Profiles" -inurl:jobs -inurl:company'
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+alias filecopy="file2clipboard.sh"
+alias wtf=wtfutil
+alias fileclip="file2clipboard.sh"
+alias space="echo 'du -sh -- *' && du -sh -- *"
+alias c="bat -p"
+alias hdr="diskutil rename"
+alias res="nslookup"
+alias home="cd ~/Desktop"
+alias ndjson="ndjson-to-json"
+alias fingerprints="aws dynamodb scan --table-name "http-finger" --query 'Items' | jq -f ~/.jqs/dynamodb.jq | jq -c -r '.|sort_by(.createdAt)'"
+alias md="mdcat"
+alias myvault="vim ~/.myvault"
+alias historyj="rg '' ~/Documents/zsh_history_cleaned | fzf"
+alias calc="/Applications/Calculator.app/Contents/MacOS/Calculator"
+alias sshp="cat ~/Documents/cryptpass/ssh.enc | openssl enc -base64 -d -aes-256-cbc -salt | pbcopy && ssh $1"
+alias clean="find . -type f -name '*DS_Store' -exec rm {} +"
+alias lambdas="aws lambda list-functions | jq '.Functions[]|.FunctionName'"
+alias ascii="asciinema"
+alias screenshot='"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --screenshot --default-background-color=1"'
+alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias nmap='sudo nmap -g53 --randomize-hosts --script-args http.useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36" '
+alias tree="tree -L 2 -a"
+alias cscpath="printf 'C:\\\\Windows\\\\Microsoft.NET\\Framework64\\\\v4.0.30319\\\\csc.exe /unsafe'"
+alias jscpath="printf 'C:\\\\Windows\\\\Microsoft.NET\\Framework64\\\\v4.0.30319\\\\jsc.exe '"
+alias seclists="cd $SECLISTS"
+alias rad="radamsa"
+alias refreshenv="source ~/.zshrc"
